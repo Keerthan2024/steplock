@@ -57,7 +57,7 @@ Machine Learning Models (SVM / Random Forest)
 | Backend    | Flask (Python)                    |
 | ML Models  | Scikit-learn (SVM, Random Forest) |
 | Sensors    | Accelerometer, Gyroscope          |
-⚡ Installation & Setup
+```⚡ Installation & Setup
 1️⃣ Clone Repository
 git clone https://github.com/your-username/gaitsecure.git
 cd gaitsecure
@@ -154,6 +154,7 @@ fetch('http://<YOUR_IP>:5000/predict')
 📱 Full-stack working prototype
 🔐 High security + usability
 📄 License
+```
 
 MIT License
 

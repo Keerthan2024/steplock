@@ -40,33 +40,24 @@ Instead of passwords or fingerprints, users are authenticated by how they walk.
 
 ## 🏗️ Architecture
 
-
+```text
 Mobile App (React Native + Expo)
-│
-▼
+        │
+        ▼
 Flask Backend API
-│
-▼
+        │
+        ▼
 Machine Learning Models (SVM / Random Forest)
 
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|------|-----------|
-| Mobile App | React Native, Expo |
-| Backend | Flask (Python) |
-| ML Models | Scikit-learn (SVM, Random Forest) |
-| Sensors | Accelerometer, Gyroscope |
-
----
-
-## ⚡ Installation & Setup
-
-### 1️⃣ Clone Repository
-
+🛠️ Tech Stack
+| Layer      | Technology                        |
+| ---------- | --------------------------------- |
+| Mobile App | React Native, Expo                |
+| Backend    | Flask (Python)                    |
+| ML Models  | Scikit-learn (SVM, Random Forest) |
+| Sensors    | Accelerometer, Gyroscope          |
+⚡ Installation & Setup
+1️⃣ Clone Repository
 git clone https://github.com/your-username/gaitsecure.git
 cd gaitsecure
 2️⃣ Mobile App Setup
@@ -169,12 +160,9 @@ MIT License
 Fork the repository
 Create a feature branch
 Commit your changes
-Push and open a PR
+Push and open a Pull Request
 ⭐ Show Your Support
 
 If you like this project, give it a ⭐ on GitHub!
 
 🔐 GaitSecure — Walk your way into security
-
-
----

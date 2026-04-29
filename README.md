@@ -48,6 +48,7 @@ Flask Backend API
         │
         ▼
 Machine Learning Models (SVM / Random Forest)
+```
 
 🛠️ Tech Stack
 | Layer      | Technology                        |

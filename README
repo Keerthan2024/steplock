@@ -1,87 +1,134 @@
-🔐 AuraLock - Premium Gait Authentication System
-A sophisticated biometric authentication system that uses smartphone sensors to identify users based on their unique walking patterns.
+# 🛡️ GaitSecure
 
-✨ Features
-Real-time Gait Recording: Capture accelerometer and gyroscope data while walking
-Multi-user Authentication: Support for multiple registered users
-Premium UI/UX: Modern, gradient-based interface with smooth animations
-Advanced ML Pipeline: Multiple algorithms with hyperparameter optimization
-Robust Backend: Flask API with comprehensive error handling
-Data Validation: Extensive sensor data quality checks
-Cross-platform: React Native with Expo for iOS and Android
-🏗️ Architecture
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│  Mobile App     │    │   Flask API      │    │  ML Models      │
-│  (React Native) │◄──►│  (10.146.53.239) │◄──►│  (SVM/RF)      │
-│                 │    │     :5000        │    │                 │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
-📱 Mobile App Setup
-Prerequisites
-Node.js 16+
-Expo CLI
-Android/iOS device or simulator
-Installation
-bash
-# Install Expo CLI globally
+### AI-Powered Gait-Based Authentication System
+
+> 🔐 Secure access using unique walking patterns
+
+---
+
+## 🌐 Overview
+
+**GaitSecure** is a biometric authentication system that identifies users based on their unique walking patterns using smartphone sensor data.
+
+It leverages:
+
+* 📱 Mobile sensor data (Accelerometer + Gyroscope)
+* 🧠 Machine Learning models (SVM, Random Forest)
+* ⚡ Real-time authentication via Flask API
+
+---
+
+## ✨ Features
+
+* 🚶 **Real-Time Gait Recording**
+  Capture walking patterns using phone sensors
+
+* 👥 **Multi-User Authentication**
+  Supports multiple registered users
+
+* 🎨 **Premium UI/UX**
+  Smooth animations with modern mobile design
+
+* 🧠 **Advanced ML Pipeline**
+  Feature extraction + model optimization
+
+* 🖥️ **Robust Backend API**
+  Flask server with validation and error handling
+
+* 📊 **Data Validation**
+  Ensures high-quality sensor input
+
+* 📱 **Cross-Platform Mobile App**
+  Built using React Native + Expo
+
+---
+
+## 🏗️ Architecture
+
+```text
+Mobile App (React Native)
+        │
+        ▼
+Flask API Server
+        │
+        ▼
+ML Models (SVM / Random Forest)
+```
+
+---
+
+## 📱 Mobile App Setup
+
+### Prerequisites
+
+* Node.js (v16+)
+* Expo CLI
+* Android/iOS device or emulator
+
+### Installation
+
+```bash
 npm install -g expo-cli
-
-# Install dependencies
 npm install
-
-# Start the development server
 expo start
-Key Dependencies
-expo-sensors: Access accelerometer and gyroscope
-expo-file-system: Save/load walk data
-expo-linear-gradient: Premium UI gradients
-react-native-safe-area-context: Safe area handling
-🖥️ Backend Setup
-Prerequisites
-Python 3.8+
-pip package manager
-Installation
-bash
-# Create virtual environment
-python -m venv auralock_env
-source auralock_env/bin/activate  # On Windows: auralock_env\Scripts\activate
+```
 
-# Install dependencies
+---
+
+## 🖥️ Backend Setup
+
+### Prerequisites
+
+* Python 3.8+
+* pip
+
+### Installation
+
+```bash
+python -m venv gaitsecure_env
+source gaitsecure_env/bin/activate   # Windows: gaitsecure_env\Scripts\activate
+
 pip install -r requirements.txt
-
-# Train initial models (place training data in 'data/' folder)
 python train_model.py
-
-# Start the Flask server
 python app.py
-Server Endpoints
-GET /: Server status
-GET /health: Health check with model status
-POST /predict: Authenticate user from gait data
-GET /users: List registered users
-POST /models/reload: Reload models without restart
-🧠 Machine Learning Pipeline
-Feature Extraction
-The system extracts comprehensive features from sensor data:
+```
 
-Statistical Features (per axis + magnitude):
+---
 
-Mean, Standard Deviation, Min, Max
-Median, Interquartile Range
-Gait-specific Features:
+## 🔌 API Endpoints
 
-Step count (peak detection)
-Average step magnitude
-Dominant walking frequency
-Spectral energy distribution
-Model Training
-Primary: Support Vector Machine (RBF/Linear kernel)
-Alternative: Random Forest Classifier
-Validation: Cross-validation with hyperparameter tuning
-Scaling: StandardScaler for feature normalization
-Data Format
-Training data should be in JSON format:
+| Method | Endpoint         | Description       |
+| ------ | ---------------- | ----------------- |
+| GET    | `/`              | Server status     |
+| GET    | `/health`        | Health check      |
+| POST   | `/predict`       | Authenticate gait |
+| GET    | `/users`         | List users        |
+| POST   | `/models/reload` | Reload models     |
 
-json
+---
+
+## 🧠 Machine Learning Pipeline
+
+### Feature Extraction
+
+* Mean, Standard Deviation
+* Min, Max, Median
+* Step count detection
+* Walking frequency
+* Spectral energy
+
+---
+
+### Models Used
+
+* 🎯 Support Vector Machine (Primary)
+* 🌲 Random Forest (Alternative)
+
+---
+
+## 📊 Data Format
+
+```json
 [
   {
     "x": -0.123,
@@ -89,136 +136,117 @@ json
     "z": 0.789,
     "type": "accel",
     "timestamp": 1634567890123
-  },
-  {
-    "x": 0.001,
-    "y": -0.002, 
-    "z": 0.015,
-    "type": "gyro",
-    "timestamp": 1634567890124
   }
 ]
-📊 File Structure
-auralock/
-├── 📱 Mobile App
-│   ├── App.js                 # Main application component
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+gaitsecure/
+├── mobile/
+│   ├── App.js
 │   ├── screens/
-│   │   ├── Recorder.js        # Gait recording interface
-│   │   └── ViewSavedWalks.js  # Data viewer and predictor
-│   ├── utils/
-│   │   └── dataUtils.js       # API communication
-│   ├── package.json           # Dependencies
-│   └── index.js              # Entry point
-├── 🖥️ Backend
-│   ├── app.py                # Flask server
-│   ├── train_model.py        # ML training pipeline
-│   ├── utils.py              # Feature extraction
-│   ├── requirements.txt      # Python dependencies
-│   └── data/                 # Training data directory
-└── 📚 Documentation
-    └── README.md             # This file
-🚀 Usage Workflow
-1. Data Collection
-Open the mobile app
-Navigate to "Record Walk" tab
-Tap "Start Recording"
-Walk normally for 5 seconds
-Data is automatically saved locally
-2. Model Training
-Copy recorded JSON files to backend data/ folder
-Run python train_model.py
-Models are saved as .pkl files
-3. Authentication
-In "View Walks" tab, select a recorded walk
-Tap "🤖 Authenticate"
-App sends data to backend for prediction
-Results show predicted user and confidence level
-🎨 UI/UX Features
-Gradient Backgrounds: Dynamic color schemes
-Smooth Animations: Recording indicators and progress bars
-Real-time Feedback: Live sensor data counts
-Premium Cards: Glassmorphism design elements
-Intuitive Navigation: Tab-based interface
-Status Indicators: Visual recording state feedback
-🔧 Configuration
-Network Settings
-Update IP address in dataUtils.js:
+│   └── utils/
+├── backend/
+│   ├── app.py
+│   ├── train_model.py
+│   ├── utils.py
+│   └── data/
+└── README.md
+```
 
-javascript
-const res = await fetch('http://10.146.53.239:5000/predict', {
-Recording Parameters
-Adjust in Recorder.js:
+---
 
-javascript
-Accelerometer.setUpdateInterval(50); // 20 Hz
-const recordingDuration = 5000; // 5 seconds
-Model Parameters
-Modify in train_model.py:
+## 🚀 Workflow
 
-python
-models = {
-    'SVM_RBF': SVC(kernel='rbf', C=1.0, gamma='scale'),
-    'RandomForest': RandomForestClassifier(n_estimators=100)
-}
-📈 Performance Metrics
-Accuracy: Typically 85-95% with quality training data
-Prediction Time: <500ms per authentication
-Feature Dimension: 48 features (24 per sensor type)
-Minimum Training: 3+ samples per user recommended
-🛡️ Security Considerations
-Data stored locally on device
-No personal information transmitted
-Encrypted model files (optional)
-Rate limiting on API endpoints
-Input validation and sanitization
-🔍 Troubleshooting
-Common Issues
-App won't connect to server:
+### 1️⃣ Record Gait
 
-Check IP address in dataUtils.js
-Ensure devices on same network
-Verify server is running on port 5000
-Low prediction accuracy:
+* Open app → Start recording
+* Walk for 5 seconds
+* Data saved locally
 
-Collect more training samples per user
-Ensure consistent walking conditions
-Check sensor data quality in logs
-Models won't load:
+### 2️⃣ Train Model
 
-Verify .pkl files exist in backend directory
-Check Python dependencies are installed
-Review server logs for specific errors
-Debug Commands
-bash
-# Test server connectivity
-curl http://10.146.53.239:5000/health
+* Move data → backend/data
+* Run training script
 
-# View server logs
-python app.py  # Check console output
+### 3️⃣ Authenticate
 
-# Validate training data
-python -c "from utils import validate_sensor_data; print('OK')"
-🚧 Future Enhancements
- Cloud synchronization
- Advanced anti-spoofing measures
- Real-time adaptive learning
- Multi-modal biometrics (voice + gait)
- Wear OS / Apple Watch support
- Enterprise SSO integration
-📄 License
-MIT License - see LICENSE file for details.
+* Select walk
+* Send to backend
+* Get prediction + confidence
 
-🤝 Contributing
-Fork the repository
-Create feature branch (git checkout -b feature/AmazingFeature)
-Commit changes (git commit -m 'Add AmazingFeature')
-Push to branch (git push origin feature/AmazingFeature)
-Open Pull Request
-📞 Support
-For issues and questions:
+---
 
-Create GitHub issues for bugs
-Check troubleshooting section
-Review server logs for backend issues
-AuraLock - Securing the future with biometric innovation 🔐✨
+## 📈 Performance
 
+* ✅ Accuracy: 85–95%
+* ⚡ Prediction Time: <500ms
+* 📊 Features: ~48 per sample
+
+---
+
+## 🛡️ Security
+
+* Data stored locally
+* No personal data transmitted
+* Input validation implemented
+* API protection mechanisms
+
+---
+
+## 🔧 Configuration
+
+### Change Backend URL
+
+Update in `dataUtils.js`:
+
+```javascript
+fetch('http://<YOUR_IP>:5000/predict')
+```
+
+---
+
+## 🔍 Troubleshooting
+
+* ❌ Server not connecting → Check IP + network
+* ❌ Low accuracy → Add more training data
+* ❌ Model issues → Verify `.pkl` files
+
+---
+
+## 🚧 Future Enhancements
+
+* ☁️ Cloud sync
+* 🧠 Anti-spoof detection
+* 📱 Wearable integration
+* 🔐 Multi-factor authentication
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+## 🤝 Contributing
+
+* Fork repo
+* Create branch
+* Commit changes
+* Open PR
+
+---
+
+## 💡 Credits
+
+Originally inspired by AuraLock system
+Customized and enhanced as **GaitSecure**
+
+---
+
+> 🔐 *GaitSecure — Walk your way into security*

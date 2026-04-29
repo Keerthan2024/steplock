@@ -125,6 +125,7 @@ gaitsecure/
 │   ├── utils.py
 │   └── data/
 └── README.md
+```
 📈 Performance
 ✅ Accuracy: 85–95%
 ⚡ Prediction Time: <500ms
@@ -154,7 +155,7 @@ fetch('http://<YOUR_IP>:5000/predict')
 📱 Full-stack working prototype
 🔐 High security + usability
 📄 License
-```
+
 
 MIT License
 

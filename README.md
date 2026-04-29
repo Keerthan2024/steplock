@@ -67,7 +67,6 @@ Machine Learning Models (SVM / Random Forest)
 
 ### 1️⃣ Clone Repository
 
-```bash
 git clone https://github.com/your-username/gaitsecure.git
 cd gaitsecure
 2️⃣ Mobile App Setup
@@ -179,20 +178,3 @@ If you like this project, give it a ⭐ on GitHub!
 
 
 ---
-
-🔥 This version is:
-- Clean ✔️  
-- Professional ✔️  
-- Hackathon-ready ✔️  
-- GitHub top-tier style ✔️  
-
----
-
-If you want next level 😏  
-I can add:
-- badges (looks pro instantly)
-- screenshots section
-- demo video section
-- LinkedIn-ready project description
-
-Just say 👍
